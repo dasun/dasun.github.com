@@ -51,7 +51,25 @@
       </div>
 
       <div class="container">
-       {{ content }}
+       <div class="row">
+	<div class="span12">
+<!-- Put the following javascript before the closing </head> tag. -->
+<script>
+  (function() {
+    var cx = '001911338979730379010:mep8dgujhp0';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+<!-- Place this tag where you want the search results to render -->
+<gcse:searchresults-only></gcse:searchresults-only> 
+	</div>
+
+</div>
+
 
 
        <div class="row">
@@ -59,7 +77,17 @@
          <div class="span2" style="margin-top:5px;"><p>&copy; K. S. Dasun 2012</p>
          </div>
 
-         {% include social-media.html %}
+         <div class="span4">
+          <a href="https://twitter.com/SachindraDasun">
+            <img src="/images/twitter.png">
+          </a>
+          <a href="http://lk.linkedin.com/in/sachindradasun">
+            <img src="/images/linkedin.png">
+          </a>
+        
+
+
+      </div>
 
     </div>
   </div>

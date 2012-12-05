@@ -3,19 +3,109 @@ layout: default
 title: "Sachindra Dasun"
 ---
 
- <div class="hero-unit">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-      </div>
+<div class="hero-unit">
+	<h1>Hello, I'm Dasun!</h1>
+	<p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+	<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
 
 <div class="row">
-{% for post in site.posts %}
-<div class="span4">
-<h3><a href="{{ post.url }}">{{ post.title }}</a>
-<span class="post-date">{{ post.date | date_to_string }}</span>
-</h3>
-<p>aaa</p>
+	<div class="span4" style="text-align:center;">
+		<img class="img-circle" src="http://placehold.it/140x140">
+		<h2>Heading</h2>
+		<p style="text-align:justify;">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+		<p><a class="btn" href="#">See more &raquo;</a></p>
+	</div><!-- /.span4 -->
+	<div class="span4" style="text-align:center;">
+		<img class="img-circle" src="http://placehold.it/140x140">
+		<h2>Heading</h2>
+		<p style="text-align:justify;">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+		<p><a class="btn" href="#">See more &raquo;</a></p>
+	</div><!-- /.span4 -->
+	<div class="span4" style="text-align:center;">
+		<img class="img-circle" src="http://placehold.it/140x140">
+		<h2>Heading</h2>
+		<p style="text-align:justify;">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+		<p><a class="btn" href="#">See more&raquo;</a></p>
+	</div><!-- /.span4 -->
 </div>
-{% endfor %}
+
+<div id="posts" class="row">
+	{% for post in paginator.posts %}
+	<hr/>
+	<div class="post-preview">
+		<img class="post-preview-image pull-right" src="http://placehold.it/200x200">
+		<h2 class="post-preview-heading">
+			<a href="{{ post.url }}">{{ post.title }}</a> 
+			&nbsp;&nbsp;&nbsp;<span class="muted" style="font-size:14px;">{{ post.date | date_to_string }}</span>
+		</h2>
+		<p style="text-align:justify;">
+			Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+		</p>
+		<p>
+			<a class="btn" href="{{ post.url }}">Read more&raquo;</a>
+		</p>
+	</div>
+
+	{% endfor %}
+</div>
+<div class="row">
+	<div class="span10">
+
+
+		<div id="post-pagination" class="pagination pagination-centered">
+<ul>
+			{% if paginator.previous_page %}
+			<li>
+				{% if paginator.previous_page == 1 %}
+				<a href="/">&laquo;</a>
+				{% else %}
+				<a href="/page{{paginator.previous_page}}#posts">&laquo;</a>
+				{% endif %}
+			</li>
+			{% else %}
+			<li class="disabled">
+				<a href="/">&laquo;</a>
+			</li>
+			{% endif %}
+
+				
+					{% if paginator.page == 1 %}
+					<li class="active">
+						<a href="#">1</a>
+					</li>
+					{% else %}
+					<li>
+					<a href="/#posts">1</a>
+				</li>
+					{% endif %}
+
+				{% for count in (2..paginator.total_pages) %}
+				
+					{% if count == paginator.page %}
+					<li class="active">
+					<a href="#">{{count}}</a>
+				</li>
+					{% else %}
+					<li>
+					<a href="/page{{count}}#posts">{{count}}</a>
+				</li>
+					{% endif %}
+				
+				{% endfor %}
+			
+
+			{% if paginator.next_page %}
+			<li>
+				<a href="/page{{paginator.next_page}}#posts">&raquo;</a>
+			</li>
+			{% else %}
+			<li>
+				<a href="#">&raquo;</a>
+			</li>
+			{% endif %}
+</ul>
+		</div>
+
+	</div>
 </div>
