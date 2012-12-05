@@ -26,6 +26,9 @@
       <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
       <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+
+
+
     </head>
     <body>
       <div class="navbar navbar-inverse navbar-fixed-top">
@@ -42,9 +45,22 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
-              <form class="navbar-search pull-left" action="">
-                      <input type="text" class="search-query span2" placeholder="Search">
-                    </form>
+              
+
+
+              <form class="navbar-search form-search pull-right"  action="/search.html"> 
+                <div> 
+                  <input type="hidden" name="cx" value="partner-pub-001911338979730379010:mep8dgujhp0" /> 
+                  <input type="hidden" name="cof" value="FORID:10" /> 
+                  <input type="hidden" name="ie" value="ISO-8859-1" /> 
+                  <div class="input-append">
+                    <input type="text" class="search-query span2"  name="q" size="21" placeholder="Search"  /> 
+                    <button type="submit" class="btn btn-info"><i class="icon-search"></i></button>
+                  </div>
+                </div> 
+              </form>
+
+
             </div>
           </div>
         </div>
@@ -56,16 +72,21 @@
 
        <div class="row">
          <hr>
+
+         
+
+
+
          <div class="span2" style="margin-top:5px;"><p>&copy; K. S. Dasun 2012</p>
          </div>
 
          {% include social-media.html %}
 
-    </div>
-  </div>
+       </div>
+     </div>
 
-  <script src="/js/jquery.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-</body>
-</html>
+     <script src="/js/jquery.js"></script>
+     <script src="/js/bootstrap.min.js"></script>
+   </body>
+   </html>
 
