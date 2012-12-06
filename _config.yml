@@ -3,3 +3,6 @@ auto: true
 server_port: 4000
 permalink: /blog/:title.html
 paginate: 5
+name: Sachindra Dasun
+description: A personel blog
+url: http://dasun.github.com

@@ -1,27 +1,32 @@
 
-    .post-preview {
-    	padding-top: 30px; /* Vertically center images part 1: add padding above and below text. */
-    	overflow: hidden; /* Vertically center images part 2: clear their floats. */
-    }
-    .post-preview-image {
-    	margin-top: -30px;
-    }
+.post-preview {
+   padding-top: 30px; /* Vertically center images part 1: add padding above and below text. */
+   overflow: hidden; /* Vertically center images part 2: clear their floats. */
+}
+.post-preview-image {
+   margin-top: -30px;
+}
 
-    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
-    .post-preview-image.pull-left {
-    	margin-right: 40px;
-    }
-    .post-preview-image.pull-right {
-    	margin-left: 40px;
-    }
+/* Give some space on the sides of the floated elements so text doesn't run right into it. */
+.post-preview-image.pull-left {
+   margin-right: 40px;
+}
+.post-preview-image.pull-right {
+   margin-left: 40px;
+}
 
-    /* Thin out the marketing headings */
-    .post-preview-heading {
-    	font-size: 30px;
-    	font-weight: 200;
-    	line-height: 1;
-    	letter-spacing: -1px;
-    }
+/* Thin out the marketing headings */
+.post-preview-heading {
+   font-size: 30px;
+   font-weight: 200;
+   line-height: 1;
+   letter-spacing: -1px;
+}
+
+/* BOOTSTRAP MODIFICATION */
+.navbar-inverse .brand, .navbar-inverse .nav > li > a {
+    color: #49AFCD;
+}
 
     /* RESPONSIVE CSS
     -------------------------------------------------- */

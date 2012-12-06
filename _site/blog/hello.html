@@ -7,6 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
   <style type="text/css">
   body {
     padding-top: 60px;
@@ -25,6 +26,9 @@
       <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
       <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+
+
+
     </head>
     <body>
       <div class="navbar navbar-inverse navbar-fixed-top">
@@ -35,12 +39,29 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">Dasun</a>
+            <a class="brand" href="/">Dasun</a>
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
               </ul>
+              
+
+
+             
+
+
+              <form id="cse-search-box" class="navbar-search form-search pull-right" action="http://google.com/cse">
+                <input type="hidden" name="cx" value="YOUR SEARCH ENGINE ID goes here" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <div class="input-append">
+                <input type="text" name="q" class="search-query span2" />
+                <button type="submit" class="btn btn-info" name="sa"><i class="icon-search"></i></button>
+              </div>
+              </form>
+              <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box"></script>
+
+
             </div>
           </div>
         </div>
@@ -53,21 +74,82 @@
             <p>This is my first post. This is</p>
           </div>
           <div class="span3">
-            <div class="well">
-               Sachindra Dasun
+            <div class="well" style="padding-top:5px; padding-bottom:5px;">
+              <h4>About me</h4>
+              <p style="text-align:center;">
+              <img class="img-circle" src="http://placehold.it/140x140">
+            </p>
+              <p>I'm Dasun</p>
+               <div style="margin-top:20px; margin-bottom: 20px;">
+	<a href="/feed.xml" style="text-decoration:none;">
+            <img src="/images/rss.png" title="Subsribe via RSS">
+          </a>
+           <a href=";contact.html" style="text-decoration:none;">
+            <img src="/images/contact.png" title="Contact me">
+          </a>
+          <a href="https://twitter.com/SachindraDasun" style="text-decoration:none;">
+            <img src="/images/twitter.png" title = "Find me on Twitter">
+          </a>
+          <a href="http://lk.linkedin.com/in/sachindradasun" style="text-decoration:none;">
+            <img src="/images/linkedin.png" title = "Find me on Linkedin">
+          </a>
+        
+
+
+   </div>
             </div>
+
+             
+
+            <div class="well" style="padding-top:5px; padding-bottom:5px;">
+              <h4>Share this</h4>
+              <hr style="margin-top:0px;"/>
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_googleplus_large' displayText='Google +'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_email_large' displayText='Email'></span>
+<span class='st_sharethis_large' displayText='ShareThis'></span>
+
+<script type="text/javascript">var switchTo5x=false;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-69422a1b-4732-b589-ded9-ee27fd262d57"});</script>
+
+            </div>
+
            
           </div>
         </div>
        
-       <hr>
-       <footer>
-        <p>&copy; K. S. Dasun 2012</p>
-      </footer>
-    </div>
+      <div class="row">
+         <hr>
+         <div class="span2" style="margin-top:5px;">
+          <p>&copy; K. S. Dasun 2012</p>
+        </div>
+        <div class="span4">
+         
+	<a href="/feed.xml" style="text-decoration:none;">
+            <img src="/images/rss.png" title="Subsribe via RSS">
+          </a>
+           <a href=";contact.html" style="text-decoration:none;">
+            <img src="/images/contact.png" title="Contact me">
+          </a>
+          <a href="https://twitter.com/SachindraDasun" style="text-decoration:none;">
+            <img src="/images/twitter.png" title = "Find me on Twitter">
+          </a>
+          <a href="http://lk.linkedin.com/in/sachindradasun" style="text-decoration:none;">
+            <img src="/images/linkedin.png" title = "Find me on Linkedin">
+          </a>
+        
 
-    <script src="/js/jquery.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  </body>
-  </html>
+
+   
+
+       </div>
+     </div>
+   </div>
+
+   <script src="/js/jquery.js"></script>
+   <script src="/js/bootstrap.min.js"></script>
+ </body>
+ </html>
 

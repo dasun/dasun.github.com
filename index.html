@@ -14,19 +14,19 @@ title: "Sachindra Dasun"
 		<img class="img-circle" src="http://placehold.it/140x140">
 		<h2>Heading</h2>
 		<p style="text-align:justify;">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-		<p><a class="btn" href="#">See more &raquo;</a></p>
+		<p><a class="btn btn-info" href="#">See more &raquo;</a></p>
 	</div><!-- /.span4 -->
 	<div class="span4" style="text-align:center;">
 		<img class="img-circle" src="http://placehold.it/140x140">
 		<h2>Heading</h2>
 		<p style="text-align:justify;">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-		<p><a class="btn" href="#">See more &raquo;</a></p>
+		<p><a class="btn btn-info" href="#">See more &raquo;</a></p>
 	</div><!-- /.span4 -->
 	<div class="span4" style="text-align:center;">
 		<img class="img-circle" src="http://placehold.it/140x140">
 		<h2>Heading</h2>
 		<p style="text-align:justify;">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-		<p><a class="btn" href="#">See more&raquo;</a></p>
+		<p><a class="btn btn-info" href="#">See more&raquo;</a></p>
 	</div><!-- /.span4 -->
 </div>
 
@@ -34,16 +34,16 @@ title: "Sachindra Dasun"
 	{% for post in paginator.posts %}
 	<hr/>
 	<div class="post-preview">
-		<img class="post-preview-image pull-right" src="http://placehold.it/200x200">
+		<img class="post-preview-image pull-right" src="{{ post.thumbnail }}">
 		<h2 class="post-preview-heading">
 			<a href="{{ post.url }}">{{ post.title }}</a> 
 			&nbsp;&nbsp;&nbsp;<span class="muted" style="font-size:14px;">{{ post.date | date_to_string }}</span>
 		</h2>
 		<p style="text-align:justify;">
-			Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+			{{ post.excerpt }}
 		</p>
 		<p>
-			<a class="btn" href="{{ post.url }}">Read more&raquo;</a>
+			<a class="btn btn-info" href="{{ post.url }}">Read more&raquo;</a>
 		</p>
 	</div>
 
