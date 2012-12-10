@@ -60,10 +60,44 @@
 
  <div class="row">
   <div class="span9">
-    <h1>Hello, I'm Dasun</h1>
+    <h1>How to Enable Unicode Sinhala in Ubuntu</h1>
     <hr>
     <br>
-    <h4>Hello! Welcome to my personal website.</h4><p>I am Dasun, a student and a computer enthusiast.</p><p>I love to learn and work with emerging technologies since I was a child. Since then I have been working with many technologies like <span style='color:#08C;'>java, .net, c++, python, jsp, php, Zend, JS, HTML5, CSS3, CMS, MySQL, SQL Server, Linux, networking and much more.</span> Nowadays, I spend most of my time in researching web technologies, and I am really enjoying it. In addition to these things, I always love to experiment with electronics specially with <a href='http://www.arduino.cc/'>Arduino</a> whenever I have a free time.</p><p>Now you know a bit about me. Feel free to have a look at my website and don't hesitate to <a href='/contact.html'>contact me</a> if you are really interested.
+    <p class='post-image-p'>
+	<img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/sinhala_language.png' />
+</p><p>This article explains the procedure that should be followed to enable sinhala language in Ubuntu 12.10. As of this writng 12.10 is the latest version of Ubuntu. Unity is the default desktop environment in Ubuntu 12.10 and the stepes explained in this article are for Unity desktop environment. You can follow these steps with any desktop environment and all the commands will work as expected.</p><p>First open the terminal. Type "terminal" in unity launcher press enter. The terminal window will be opened.</p><p class='post-image-p'>
+	<img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/1_open_terminal.png' />
+</p><p>Next type the following command in the terminal and press enter.
+
+<div class='highlight'><pre><code class='bash'>sudo apt-get install ttf-sinhala-lklug ibus im-switch ibus-m17n m17n-db m17n-contrib
+</code></pre>
+</div>
+
+
+
+
+<div class='highlight'><pre><code class='html'><span class='nt'>&lt;html&gt;&lt;body&gt;</span>aaaa<span class='nt'>&lt;/body&gt;&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+
+
+You will be asked to enter the administrator password. Type the password and press enter.</p><p class='post-image-p'>
+	<img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/2_terminal.png' />
+</p><p>Once you press the enter key the packages required to install sinhala language will be downloaded and installed automatically. This process may take few minitutes depending on the speed of your internet connection.</p><p>After the proroccess completes open the unity launcher, type "ibus" and press enter. The IBus Preferences dialog will be opened.</p><p class='post-image-p'>
+	<img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/3_ibus.png' />
+</p><p>Go to the "Input Method" tab in the IBus Preferences dialog.</p><p class='post-image-p'>
+	<img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/4_ibus_input_method_tab.png' />
+</p><p>Check the "Customize active input methods" checkbox. Then click on the "Select an input method" combo box and select "Sinhala; Sinhalese - wijesekera (m17n)". Click on the "Add" button.</p><p class='post-image-p'>
+	<img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/5_ibus_select_sinhala.png' />
+</p><p class='post-image-p'>
+	<img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/6_after_selecting_sinhala.png' />
+</p><p>Now close the dialog box and you will be able to see a little keyboard icon near to the top right coner of the screen. Click on that icon and select "Restart". </p><p class='post-image-p'>
+	<img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/7_ibus_icon.png' />
+</p><p>Click again in the keyboard icon and you will be able to select the sinhala language from the available input methods. </p><p class='post-image-p'>
+	<img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/8_ibus_icon_select_sinhala.png' />
+</p><p>After selecting the sinhala language you can use unicode sinhala in any compatible text editor.</p><p class='post-image-p'>
+	<img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/9_sinhala_typing.png' />
 </p>
   </div>
   <div class="span3">

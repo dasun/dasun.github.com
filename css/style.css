@@ -1,31 +1,45 @@
 
 .post-preview {
-   padding-top: 30px; /* Vertically center images part 1: add padding above and below text. */
-   overflow: hidden; /* Vertically center images part 2: clear their floats. */
+ padding-top: 30px; /* Vertically center images part 1: add padding above and below text. */
+ overflow: hidden; /* Vertically center images part 2: clear their floats. */
 }
 .post-preview-image {
-   margin-top: -30px;
+ margin-top: -30px;
 }
 
 /* Give some space on the sides of the floated elements so text doesn't run right into it. */
 .post-preview-image.pull-left {
-   margin-right: 40px;
+ margin-right: 40px;
 }
 .post-preview-image.pull-right {
-   margin-left: 40px;
+ margin-left: 40px;
+}
+
+.post-image-p {
+    margin:20px;
+    text-align: center;
 }
 
 /* Thin out the marketing headings */
 .post-preview-heading {
-   font-size: 30px;
-   font-weight: 200;
-   line-height: 1;
-   letter-spacing: -1px;
+ font-size: 30px;
+ font-weight: 200;
+ line-height: 1;
+ letter-spacing: -1px;
 }
 
 /* BOOTSTRAP MODIFICATION */
-.navbar-inverse .brand, .navbar-inverse .nav > li > a {
-    color: #49AFCD;
+.navbar .brand, .navbar .nav > li > a {
+  color: #49AFCD;
+}
+
+.hero-unit {
+  background-color: #ddecfc;
+  }
+
+body {
+  font-size: 16px;
+  line-height: 22px;
 }
 
     /* RESPONSIVE CSS

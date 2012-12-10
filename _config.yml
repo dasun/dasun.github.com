@@ -6,3 +6,4 @@ paginate: 5
 name: Sachindra Dasun
 description: A personel blog
 url: http://dasun.github.com
+pygments: true
