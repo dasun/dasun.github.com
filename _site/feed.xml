@@ -9,10 +9,10 @@
 			<item>
 				<title>How to Enable Unicode Sinhala in Ubuntu</title>
 				<description>&lt;p class='post-image-p'&gt;
-	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/sinhala_language.png' /&gt;
-&lt;/p&gt;&lt;p&gt;This article explains the procedure that should be followed to enable sinhala language in Ubuntu 12.10. As of this writng 12.10 is the latest version of Ubuntu. Unity is the default desktop environment in Ubuntu 12.10 and the stepes explained in this article are for Unity desktop environment. You can follow these steps with any desktop environment and all the commands will work as expected.&lt;/p&gt;&lt;p&gt;First open the terminal. Type &quot;terminal&quot; in unity launcher press enter. The terminal window will be opened.&lt;/p&gt;&lt;p class='post-image-p'&gt;
-	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/1_open_terminal.png' /&gt;
-&lt;/p&gt;&lt;p&gt;Next type the following command in the terminal and press enter.
+	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/sinhala_language_570x260.png' /&gt;
+&lt;/p&gt;&lt;p&gt;This article explains the procedure that should be followed to enable Sinhala language in Ubuntu 12.10. As of this writing 12.10 is the latest version of Ubuntu. Unity is the default desktop environment in Ubuntu 12.10, and the steps explained in this article are for Unity desktop environment.&lt;/p&gt;&lt;p&gt;First open the terminal. Type &quot;terminal&quot; in Unity Launcher press the enter key.&lt;/p&gt;&lt;p class='post-image-p'&gt;
+	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/1_open_terminal_300x140.png' /&gt;
+&lt;/p&gt;&lt;p&gt;Next type the following command in the terminal and press enter key. 
 
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;sudo apt-get install ttf-sinhala-lklug ibus im-switch ibus-m17n m17n-db m17n-contrib
 &lt;/code&gt;&lt;/pre&gt;
@@ -20,33 +20,26 @@
 
 
 
-
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='html'&gt;&lt;span class='nt'&gt;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&lt;/span&gt;aaaa&lt;span class='nt'&gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-
-
 You will be asked to enter the administrator password. Type the password and press enter.&lt;/p&gt;&lt;p class='post-image-p'&gt;
-	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/2_terminal.png' /&gt;
-&lt;/p&gt;&lt;p&gt;Once you press the enter key the packages required to install sinhala language will be downloaded and installed automatically. This process may take few minitutes depending on the speed of your internet connection.&lt;/p&gt;&lt;p&gt;After the proroccess completes open the unity launcher, type &quot;ibus&quot; and press enter. The IBus Preferences dialog will be opened.&lt;/p&gt;&lt;p class='post-image-p'&gt;
-	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/3_ibus.png' /&gt;
+	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/2_terminal_520x340.png' /&gt;
+&lt;/p&gt;&lt;p&gt;Once you press the enter key the packages required to install Sinhala language will be downloaded and installed automatically. This process may take few minutes depending on the speed of your internet connection.&lt;/p&gt;&lt;p&gt;After the process has completed open the unity launcher, type &quot;ibus&quot; and press enter. The IBus Preferences dialog will be opened. &lt;/p&gt;&lt;p class='post-image-p'&gt;
+	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/3_ibus_300x383.png' /&gt;
 &lt;/p&gt;&lt;p&gt;Go to the &quot;Input Method&quot; tab in the IBus Preferences dialog.&lt;/p&gt;&lt;p class='post-image-p'&gt;
-	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/4_ibus_input_method_tab.png' /&gt;
+	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/4_ibus_input_method_tab_300x383.png' /&gt;
 &lt;/p&gt;&lt;p&gt;Check the &quot;Customize active input methods&quot; checkbox. Then click on the &quot;Select an input method&quot; combo box and select &quot;Sinhala; Sinhalese - wijesekera (m17n)&quot;. Click on the &quot;Add&quot; button.&lt;/p&gt;&lt;p class='post-image-p'&gt;
-	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/5_ibus_select_sinhala.png' /&gt;
+	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/5_ibus_select_sinhala_300x373.png' /&gt;
 &lt;/p&gt;&lt;p class='post-image-p'&gt;
-	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/6_after_selecting_sinhala.png' /&gt;
-&lt;/p&gt;&lt;p&gt;Now close the dialog box and you will be able to see a little keyboard icon near to the top right coner of the screen. Click on that icon and select &quot;Restart&quot;. &lt;/p&gt;&lt;p class='post-image-p'&gt;
-	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/7_ibus_icon.png' /&gt;
-&lt;/p&gt;&lt;p&gt;Click again in the keyboard icon and you will be able to select the sinhala language from the available input methods. &lt;/p&gt;&lt;p class='post-image-p'&gt;
-	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/8_ibus_icon_select_sinhala.png' /&gt;
-&lt;/p&gt;&lt;p&gt;After selecting the sinhala language you can use unicode sinhala in any compatible text editor.&lt;/p&gt;&lt;p class='post-image-p'&gt;
-	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/9_sinhala_typing.png' /&gt;
+	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/6_after_selecting_sinhala_300x383.png' /&gt;
+&lt;/p&gt;&lt;p&gt;Now close the dialog box and you will be able to see a little keyboard icon near to the top right corner of the screen. Click on that icon and select &quot;Restart&quot;.&lt;/p&gt;&lt;p class='post-image-p'&gt;
+	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/7_ibus_icon_300x80.png' /&gt;
+&lt;/p&gt;&lt;p&gt;Click again in the keyboard icon and you will be able to select the Sinhala language from the available input methods.&lt;/p&gt;&lt;p class='post-image-p'&gt;
+	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/8_ibus_icon_select_sinhala_340x205.png' /&gt;
+&lt;/p&gt;&lt;p&gt;After selecting the Sinhala language you can use Unicode Sinhala in any compatible text editor.&lt;/p&gt;&lt;p class='post-image-p'&gt;
+	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/9_sinhala_typing_500x120.png' /&gt;
 &lt;/p&gt;</description>
 				<pubDate>Thu, 06 Dec 2012 00:00:00 +0530</pubDate>
-				<link>http://dasun.github.com/blog/install.html</link>
-				<guid isPermaLink="true">http://dasun.github.com/blog/install.html</guid>
+				<link>http://dasun.github.com/blog/install-unicode-sinhala-in-ubuntu.html</link>
+				<guid isPermaLink="true">http://dasun.github.com/blog/install-unicode-sinhala-in-ubuntu.html</guid>
 			</item>
 		
 			<item>
