@@ -1,0 +1,39 @@
+---
+layout: default
+title: "Archive"
+---
+
+<div class="row">
+	<div class="span12" style="text-align:justify;">
+		<h2>Archive</h2><hr>
+
+		<ul class="undecorated">
+			{% for post in site.posts %}
+			<li class="archive_list" style="line-height:30px;">
+				<time class="muted" datetime='{{post.date | date: "%Y-%m-%d"}}'>{{post.date | date: "%Y-%m-%d"}}</time> 
+				&nbsp;<a class="archive_list_article_link" href='{{post.url}}'>{{post.title}}</a>
+
+				<ul class="inline" style="display:inline;">
+					{% for tag in post.tags %}
+					<li class="archive_list"><a class="tag_list_link" href="/tag/{{ tag }}"><span class="label">{{ tag }}</span></a></li>
+					{% endfor %}
+				</ul>
+			</li>
+			{% endfor %}
+
+
+		</ul>
+
+<br>
+
+		<h2>Tags</h2><hr>
+
+		<ul class="tags">
+			{% for tag in site.tags %}
+			<li><a href="/tag/{{ tag[0] }}">{{ tag[0] }}&nbsp;&nbsp;<span class="label label-warning">{{ tag[1].size }}</span></a></li>
+			{% endfor %}
+		</ul>
+
+
+	</div>
+</div>

@@ -28,6 +28,7 @@
       <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     </head>
     <body>
+       <div id="wrap">
       <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container">
@@ -40,20 +41,36 @@
             <div class="nav-collapse collapse">
               <ul class="nav">
                 <li><a href="/#posts">Blog</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/contact.html">Contact</a></li>
+                 <li 
+                 {% if page.title == 'Archive' %}
+                 class= "active"
+{% endif %}
+
+                 ><a href="/archive.html">Archive</a></li>
+                <li 
+                 {% if page.title == 'About' %}
+                 class= "active"
+{% endif %}><a href="/about.html">About</a></li>
+                <li 
+                 {% if page.title == 'Contact' %}
+                 class= "active"
+{% endif %}><a href="/contact.html">Contact</a></li>
               </ul>
               <form id="cse-search-box" class="navbar-search form-search pull-right" action="http://dasun.github.com/search.html">
                 <input type="hidden" name="cx" value="017374597393819813377:kgeehha8rdi" />
                 <input type="hidden" name="ie" value="UTF-8" />
-                <div class="input-append">
+              
                   <input type="text" name="q" class="search-query span2" />
-                  <button type="submit" class="btn btn-info" name="sa"><i class="icon-search"></i></button>
-                </div>
+                  
               </form>
               <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box"></script>
             </div>
           </div>
         </div>
       </div>
+      <br>
       <div class="container">
+
+
+
+        

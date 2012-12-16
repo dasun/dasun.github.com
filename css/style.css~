@@ -1,0 +1,73 @@
+
+.post-preview {
+ padding-top: 30px; /* Vertically center images part 1: add padding above and below text. */
+ overflow: hidden; /* Vertically center images part 2: clear their floats. */
+}
+.post-preview-image {
+ margin-top: -30px;
+}
+
+/* Give some space on the sides of the floated elements so text doesn't run right into it. */
+.post-preview-image.pull-left {
+ margin-right: 40px;
+}
+.post-preview-image.pull-right {
+ margin-left: 40px;
+}
+
+.post-image-p {
+    margin:20px;
+    text-align: center;
+}
+
+/* Thin out the marketing headings */
+.post-preview-heading {
+ font-size: 30px;
+ font-weight: 200;
+ line-height: 1;
+ letter-spacing: -1px;
+}
+
+/* BOOTSTRAP MODIFICATION */
+.navbar .brand, .navbar .nav > li > a {
+  color: #49AFCD;
+}
+
+.hero-unit {
+  background-color: #ddecfc;
+  }
+
+.nav > li > a:hover {
+background-color:#eee;
+}
+
+body {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+    @media (max-width: 979px) {
+    	.post-preview {
+    		padding: 10;
+    	}
+    	.post-preview-image.pull-left,
+    	.post-preview-image.pull-right {
+    		display: block;
+    		float: none;
+    		max-width: 40%;
+    		margin: 0 auto 20px;
+    	}
+    }
+
+    @media (max-width: 767px) {
+    	.post-preview-heading {
+    		font-size: 30px;
+    	}
+    	.post-preview .lead {
+    		font-size: 18px;
+    		line-height: 1.5;
+    	}
+    }

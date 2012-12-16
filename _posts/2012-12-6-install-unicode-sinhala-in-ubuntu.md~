@@ -1,13 +1,8 @@
 ---
 layout: post
 title: "How to Enable Unicode Sinhala in Ubuntu"
-thumbnail: /images/posts/enable-sinhala-in-ubuntu/thumbnail_200x200.png
+thumbnail: http://placehold.it/200x200
 excerpt: "This article explains the procedure that should be followed to enable Sinhala language in Ubuntu 12.10. As of this writing 12.10 is the latest version of Ubuntu. Unity is the default desktop environment in Ubuntu 12.10, and the steps explained in this article are for Unity desktop environment."
-tags:
-- linux
-- ubuntu
-- unicode
-- sinhala
 ---
 
 <p class="post-image-p">
