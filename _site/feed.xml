@@ -7,6 +7,258 @@
 		<atom:link href="http://dasun.github.com/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Stable Android Orientation Readings</title>
+				<description>&lt;div style='text-align:justify;'&gt;
+	&lt;p class='post-image-p'&gt;
+	&lt;img class='img-polaroid' src='/images/posts/stable-android-orientation-readings/accelerometer.png' /&gt;
+	&lt;/p&gt;
+&lt;p&gt;
+  I am working on an android project again. This time it is 
+  a hardware based android project. In the middle of that came into a 
+  position where I have to obtain stable orientation readings from the 
+  device. In the beginning, I decided to obtain values from the 
+  gyroscope and I found the following list of mobile devices contains 
+  a built-in gyroscope.
+&lt;/p&gt;
+&lt;h3&gt;
+  Phones
+&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    HTC Sensation
+  &lt;/li&gt;
+  &lt;li&gt;
+    HTC Sensation XL
+  &lt;/li&gt;
+  &lt;li&gt;
+    HTC Evo 3D
+  &lt;/li&gt;
+  &lt;li&gt;
+    HTC One S
+  &lt;/li&gt;
+  &lt;li&gt;
+    HTC One X
+  &lt;/li&gt;
+  &lt;li&gt;
+    Huawei Ascend P1
+  &lt;/li&gt;
+  &lt;li&gt;
+    Huawei Ascend X (U9000)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Huawei Honor (U8860)
+  &lt;/li&gt;
+  &lt;li&gt;
+    LG Nitro HD (P930)
+  &lt;/li&gt;
+  &lt;li&gt;
+    LG Optimus 2x (P990)
+  &lt;/li&gt;
+  &lt;li&gt;
+    LG 
+    Optimus Black (P970)
+  &lt;/li&gt;
+  &lt;li&gt;
+    LG Optimus 3D (P920)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Samsung 
+    Galaxy S II (i9100)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Samsung Galaxy S III (i9300)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Samsung Galaxy R (i9103)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Samsung Google Nexus S (i9020)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Samsung Galaxy Nexus (i9250)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Samsung Galaxy Note 
+    (n7000)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Sony Xperia P (LT22i)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Sony Xperia S (LT26i)
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;
+  Tablets
+&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    Acer Iconia 
+    Tab A100 (7&amp;quot;)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Acer Iconia Tab A500 (10.1&amp;quot;)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Asus Eee Pad Transformer (TF101)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Asus Eee Pad Transformer 
+    Prime (TF201)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Motorola Xoom (mz604)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Samsung Galaxy 
+    Tab (p1000)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Samsung Galaxy Tab 7 plus (p6200)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Samsung Galaxy Tab 10.1 (p7100)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Sony Tablet P
+  &lt;/li&gt;
+  &lt;li&gt;
+    Sony 
+    Tablet S
+  &lt;/li&gt;
+  &lt;li&gt;
+    Toshiba Thrive 7&amp;quot;
+  &lt;/li&gt;
+  &lt;li&gt;
+    Toshiba Trhive 10
+    &amp;quot;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  But unfortunately none of my devices was 
+  in the list. Still the gyroscope is not much popular sensor among 
+  android mobile devices. Even though most of the android mobile 
+  devices do not have a built-in gyroscope almost all of them have an 
+  accelerometer and a magnetometer. So I decided to combine the 
+  readings from the accelerometer and magnetometer to obtain 
+  orientation data.
+&lt;/p&gt;
+&lt;p&gt;
+  With android reading values from 
+  these sensors is not a very difficult task except the stabilization 
+  of the readings. The reading obtained directly from these sensors 
+  are very unstable and noisy. Even when the mobile device is in a 
+  stable position I don&amp;#39;t have a stable output. So I realized that 
+  to measure actual orientation I have to deal with the noise. I 
+  searched all over the internet and could not come up with a complete 
+  explanation. But I found some useful information about filters that 
+  can be used. 
+&lt;/p&gt;
+&lt;p&gt;
+  So I implement a code by using the information 
+  about filters.
+&lt;/p&gt;
+&lt;/div&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt;&lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;android.content.Context&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+&lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;android.hardware.Sensor&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+&lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;android.hardware.SensorEvent&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+&lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;android.hardware.SensorEventListener&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+&lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;android.hardware.SensorManager&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+
+&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;AccelerometerService&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='n'&gt;SensorManager&lt;/span&gt; &lt;span class='n'&gt;sensorManager&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='n'&gt;SensorEventListener&lt;/span&gt; &lt;span class='n'&gt;sensorEventListener&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;boolean&lt;/span&gt; &lt;span class='n'&gt;started&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kc'&gt;false&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='n'&gt;accelerometer&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;];&lt;/span&gt;
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='n'&gt;magneticField&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;];&lt;/span&gt;
+
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='n'&gt;rotationMatrix&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;9&lt;/span&gt;&lt;span class='o'&gt;];&lt;/span&gt;
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='n'&gt;inclinationMatrix&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;9&lt;/span&gt;&lt;span class='o'&gt;];&lt;/span&gt;
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='n'&gt;attitude&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;];&lt;/span&gt;
+
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;final&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;double&lt;/span&gt; &lt;span class='n'&gt;RAD2DEG&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;180&lt;/span&gt; &lt;span class='o'&gt;/&lt;/span&gt; &lt;span class='n'&gt;Math&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;PI&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='n'&gt;attitudeInDegrees&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;3&lt;/span&gt;&lt;span class='o'&gt;];&lt;/span&gt;
+	
+	&lt;span class='kd'&gt;private&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kd'&gt;final&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt; &lt;span class='n'&gt;ALPHA&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mf'&gt;0.2f&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+	
+	&lt;span class='c1'&gt;//Filter&lt;/span&gt;
+	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='nf'&gt;filter&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='n'&gt;newValues&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='kt'&gt;float&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='n'&gt;previousValues&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+		&lt;span class='k'&gt;for&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt; &lt;span class='o'&gt;&amp;lt;&lt;/span&gt; &lt;span class='n'&gt;newValues&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;length&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='o'&gt;++)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+			&lt;span class='n'&gt;previousValues&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='o'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;previousValues&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='o'&gt;]&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;ALPHA&lt;/span&gt; &lt;span class='o'&gt;*&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;newValues&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='o'&gt;]&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt; &lt;span class='n'&gt;previousValues&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='o'&gt;]);&lt;/span&gt;
+		&lt;span class='o'&gt;}&lt;/span&gt;
+		&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;previousValues&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+	&lt;span class='o'&gt;}&lt;/span&gt;
+
+	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;start&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kd'&gt;final&lt;/span&gt; &lt;span class='n'&gt;Context&lt;/span&gt; &lt;span class='n'&gt;applicationContext&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+		&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;started&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+			&lt;span class='k'&gt;return&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+		&lt;span class='o'&gt;}&lt;/span&gt;
+
+		&lt;span class='n'&gt;sensorManager&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;SensorManager&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;applicationContext&lt;/span&gt;
+				&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;getSystemService&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;Context&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;SENSOR_SERVICE&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+
+		&lt;span class='n'&gt;sensorEventListener&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='n'&gt;SensorEventListener&lt;/span&gt;&lt;span class='o'&gt;()&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+
+			&lt;span class='nd'&gt;@Override&lt;/span&gt;
+			&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;onSensorChanged&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;SensorEvent&lt;/span&gt; &lt;span class='n'&gt;event&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+
+				&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;type&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;event&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;sensor&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;getType&lt;/span&gt;&lt;span class='o'&gt;();&lt;/span&gt;
+				&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;type&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;Sensor&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;TYPE_MAGNETIC_FIELD&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+					&lt;span class='n'&gt;magneticField&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;filter&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;event&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;values&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;clone&lt;/span&gt;&lt;span class='o'&gt;(),&lt;/span&gt; &lt;span class='n'&gt;magneticField&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+				&lt;span class='o'&gt;}&lt;/span&gt;
+				&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;type&lt;/span&gt; &lt;span class='o'&gt;==&lt;/span&gt; &lt;span class='n'&gt;Sensor&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;TYPE_ACCELEROMETER&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+					&lt;span class='n'&gt;accelerometer&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;filter&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;event&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;values&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;clone&lt;/span&gt;&lt;span class='o'&gt;(),&lt;/span&gt; &lt;span class='n'&gt;accelerometer&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+				&lt;span class='o'&gt;}&lt;/span&gt;
+
+				&lt;span class='n'&gt;SensorManager&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;getRotationMatrix&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;rotationMatrix&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt;
+						&lt;span class='n'&gt;inclinationMatrix&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;accelerometer&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;magneticField&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+				&lt;span class='n'&gt;SensorManager&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;getOrientation&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;rotationMatrix&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;attitude&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+
+				&lt;span class='n'&gt;attitudeInDegrees&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='o'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;Math&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;round&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;attitude&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='o'&gt;]&lt;/span&gt; &lt;span class='o'&gt;*&lt;/span&gt; &lt;span class='n'&gt;RAD2DEG&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+				&lt;span class='n'&gt;attitudeInDegrees&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;Math&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;round&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;attitude&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;]&lt;/span&gt; &lt;span class='o'&gt;*&lt;/span&gt; &lt;span class='n'&gt;RAD2DEG&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+				&lt;span class='n'&gt;attitudeInDegrees&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='n'&gt;Math&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;round&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;attitude&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='mi'&gt;2&lt;/span&gt;&lt;span class='o'&gt;]&lt;/span&gt; &lt;span class='o'&gt;*&lt;/span&gt; &lt;span class='n'&gt;RAD2DEG&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+
+			&lt;span class='o'&gt;}&lt;/span&gt;
+
+			&lt;span class='nd'&gt;@Override&lt;/span&gt;
+			&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;onAccuracyChanged&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;Sensor&lt;/span&gt; &lt;span class='n'&gt;sensor&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;accuracy&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+
+			&lt;span class='o'&gt;}&lt;/span&gt;
+		&lt;span class='o'&gt;};&lt;/span&gt;
+		&lt;span class='n'&gt;sensorManager&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;registerListener&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;sensorEventListener&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt;
+				&lt;span class='n'&gt;sensorManager&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;getDefaultSensor&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;Sensor&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;TYPE_ACCELEROMETER&lt;/span&gt;&lt;span class='o'&gt;),&lt;/span&gt;
+				&lt;span class='n'&gt;SensorManager&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;SENSOR_DELAY_UI&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+		&lt;span class='n'&gt;sensorManager&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;registerListener&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;sensorEventListener&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt;
+				&lt;span class='n'&gt;sensorManager&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;getDefaultSensor&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;Sensor&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;TYPE_MAGNETIC_FIELD&lt;/span&gt;&lt;span class='o'&gt;),&lt;/span&gt;
+				&lt;span class='n'&gt;SensorManager&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;SENSOR_DELAY_UI&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+
+		&lt;span class='n'&gt;started&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kc'&gt;true&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+	&lt;span class='o'&gt;}&lt;/span&gt;
+
+	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;boolean&lt;/span&gt; &lt;span class='nf'&gt;getStarted&lt;/span&gt;&lt;span class='o'&gt;()&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+		&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;started&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+	&lt;span class='o'&gt;}&lt;/span&gt;
+
+	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;stop&lt;/span&gt;&lt;span class='o'&gt;()&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+		&lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;started&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+			&lt;span class='n'&gt;sensorManager&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;unregisterListener&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;sensorEventListener&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+			&lt;span class='n'&gt;started&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kc'&gt;false&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+		&lt;span class='o'&gt;}&lt;/span&gt;
+	&lt;span class='o'&gt;}&lt;/span&gt;
+	
+	&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='nf'&gt;getAttitudeInDegrees&lt;/span&gt;&lt;span class='o'&gt;()&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+		&lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;attitudeInDegrees&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+	&lt;span class='o'&gt;}&lt;/span&gt;
+&lt;span class='o'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;You can read more about android position sensors &lt;a href='http://developer.android.com/guide/topics/sensors/sensors_position.html'&gt;here&lt;/a&gt;. &lt;/p&gt;</description>
+				<pubDate>Fri, 26 Apr 2013 00:00:00 +0530</pubDate>
+				<link>http://dasun.github.com/blog/stable-android-orientation-readings.html</link>
+				<guid isPermaLink="true">http://dasun.github.com/blog/stable-android-orientation-readings.html</guid>
+			</item>
+		
+			<item>
 				<title>How to Enable Unicode Sinhala in Ubuntu</title>
 				<description>&lt;p class='post-image-p'&gt;
 	&lt;img class='img-polaroid' src='/images/posts/enable-sinhala-in-ubuntu/sinhala_language_570x260.png' /&gt;
