@@ -18,7 +18,7 @@ tags:
 <p class="post-image-p">
 	<img src="/images/posts/enable-sinhala-in-ubuntu/1_open_terminal_300x140.png" class="img-polaroid">
 </p>
-<p>Next type the following command in the terminal and press enter key.</p>
+<p>Next type the following command in the terminal and press enter key. 
 
 {% highlight bash %}
 sudo apt-get install ttf-sinhala-lklug ibus im-switch ibus-m17n m17n-db m17n-contrib
