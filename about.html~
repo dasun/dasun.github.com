@@ -37,44 +37,5 @@ title: "About"
 		</ul>
 
 
-		<h3>Skills</h3>
-		<div class="row">
-			<div class="span3">
-				<ul class="skills">
-					<li>Java</li>
-					<li>Servlet</li>
-					<li>JSP</li>
-					<li>JPA</li>
-					<li>Netbeans Platform</li>
-					<li>Android</li>
-					<li>VB.NET</li>
-					<li>C++</li>
-				</ul>
-
-				</div>
-				<div class="span3">
-					<ul class="skills">
-
-						<li>Python</li>
-						<li>PHP</li>
-						<li>XML</li>
-						<li>SQL</li>
-						<li>MySQL</li>
-						<li>SQL Server</li>
-						<li>Zend Framework</li>
-						<li>CMS</li>
-					</ul>
-				</div>
-				<div class="span3">
-					<ul class="skills">
-						<li>JavaScript</li>
-						<li>jQuery</li>
-						<li>HTML5</li>
-						<li>CSS3</li>
-						<li>Python</li>
-						<li>Linux</li>
-					</ul>
-				</div>
-			</div>
 		</div>
 	</div>
