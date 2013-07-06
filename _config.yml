@@ -1,6 +1,4 @@
-server: true
-auto: true
-server_port: 4000
+port: 4000
 permalink: /blog/:title.html
 paginate: 5
 name: Sachindra Dasun
